@@ -10,9 +10,11 @@ def next_version():
     return '.'.join(_v)
 
 def read_file(f):
-    with open(f, 'r') as _file:
-        return _file.read()
-
+    try:
+        with open(f, 'r') as _file:
+            return _file.read()
+    except Exception as e:
+        return ''
 
 setup(
     name='hexconnector',
